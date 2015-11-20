@@ -1,0 +1,383 @@
+Importing text features: ['pleas', 'control', 'term', 'deal', 'ee', 'rob', 'hard', 'ani', 'want', 'need', 'paul', 'yes', 'ray', 'ena', 'given', 'thank', 'val', 'profit', 'review', 'turbin', 'note', 'just', 'asset', 'forward', 'east', 'liz', 'pm', 'asap', 'max', 'memo', 'use', 'ect', 'corp', 'plan', 'toph', 'america', 'goal', 'alloc', 'onli', 'ben', 'look', 'howev', 'inform', 'target', 'meet', 'guy', 'view', 'manag', 'fact', 'know']
+
+Arrays are ordered properly
+
+
+***** WITHOUT TRAIN/TEST SPLIT *****
+----- NB classifier -----
+   accuracy: 0.875862068966
+   recall: 0.388888888889
+   precision: 0.5
+Time: 0.02 s
+
+----- SVM classifier -----
+   accuracy: 1.0
+   recall: 1.0
+   precision: 1.0
+Time: 0.02 s
+
+***** WITH TRAIN/TEST SPLIT *****
+----- NB classifier -----
+   accuracy: 0.886363636364
+   recall: 0.6
+   precision: 0.5
+Time: 0.02 s
+
+----- SVM classifier -----
+   accuracy: 0.863636363636
+   recall: 0.2
+   precision: 0.333333333333
+Time: 0.02 s
+
+----- Decision Tree classifier -----
+   accuracy: 0.818181818182
+   recall: 0.6
+   precision: 0.333333333333
+Time: 0.01 s
+
+
+-- Summary for SVM 10-fold validation --
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    1.0    |  0.886   |  0.4   |    0.5    |
+|    2.0    |  0.864   |  0.4   |    0.4    |
+|    3.0    |  0.841   |  0.6   |   0.375   |
+|    4.0    |  0.818   |  0.6   |   0.333   |
+|    5.0    |   0.75   |  0.2   |   0.125   |
+|    6.0    |  0.841   |  0.0   |    0.0    |
+|    7.0    |  0.795   |  0.4   |    0.25   |
+|    8.0    |  0.864   |  0.4   |    0.4    |
+|    9.0    |  0.841   |  0.6   |   0.375   |
+|    10.0   |   0.75   |  0.2   |   0.125   |
+|    mean   |  0.825   |  0.38  |   0.2883  |
+|   median  |  0.841   |  0.4   |   0.354   |
+|    min    |   0.75   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Summary for Decision Tree 10-fold validation --
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    1.0    |  0.841   |  0.4   |   0.333   |
+|    2.0    |  0.886   |  0.6   |    0.5    |
+|    3.0    |  0.841   |  0.4   |   0.333   |
+|    4.0    |  0.864   |  0.4   |    0.4    |
+|    5.0    |  0.841   |  0.4   |   0.333   |
+|    6.0    |  0.864   |  0.4   |    0.4    |
+|    7.0    |  0.727   |  0.2   |   0.111   |
+|    8.0    |  0.818   |  0.4   |   0.286   |
+|    9.0    |  0.795   |  0.2   |   0.167   |
+|    10.0   |  0.886   |  0.6   |    0.5    |
+|    mean   |  0.8363  |  0.4   |   0.3363  |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.727   |  0.2   |   0.111   |
++-----------+----------+--------+-----------+
+
+PCA explained variances:
+[ 0.56862959  0.13959847  0.09063559  0.07788434  0.05373569  0.0407654
+  0.01440323]
+
+Warning (from warnings module):
+  File "C:\Users\user.userpc\Downloads\WinPython-64bit-2.7.10.2\python-2.7.10.amd64\lib\site-packages\sklearn\metrics\classification.py", line 958
+    'precision', 'predicted', average, warn_for)
+UndefinedMetricWarning: Precision is ill-defined and being set to 0.0 due to no predicted samples.
+
+-- Summary for 'SVM after PCA (n_features=7)' 1000-fold validation --
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.804598 | 0.2536 |  0.206879 |
+|   median  |  0.818   |  0.2   |    0.2    |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Summary for Decision Tree after PCA (n_features=7)' 1000-fold validation --
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.80522  | 0.2486 |  0.206318 |
+|   median  |  0.818   |  0.2   |    0.2    |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+......The results are worse after PCA
+
+----------- TUNING SVM MODEL -----------
+
+Tune C -- kernel=linear, C=1.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.891059 | 0.1298 |  0.467804 |
+|   median  |  0.886   |  0.2   |    0.5    |
+|    min    |  0.773   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune C -- kernel=linear, C=10.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.877364 | 0.1676 |  0.444547 |
+|   median  |  0.886   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune C -- kernel=linear, C=100.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.858561 | 0.2092 |  0.377497 |
+|   median  |  0.864   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+   LINEAR KERNEL: high precision, but low recall.
+
+Tune C -- kernel=rbf, C=1.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.884895 | 0.0014 |  0.005666 |
+|   median  |  0.886   |  0.0   |    0.0    |
+|    min    |  0.795   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune C -- kernel=rbf, C=100.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.835673 | 0.2886 |  0.289323 |
+|   median  |  0.841   |  0.2   |   0.286   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune C -- kernel=rbf, C=1000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.823862 | 0.3134 |  0.270523 |
+|   median  |  0.841   |  0.4   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune C -- kernel=rbf, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.823862 | 0.3134 |  0.270523 |
+|   median  |  0.841   |  0.4   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.0001, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.888873 | 0.1328 |  0.460425 |
+|   median  |  0.886   |  0.2   |    0.5    |
+|    min    |   0.75   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.001, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   |  0.8502  |  0.2   |  0.277362 |
+|   median  |  0.864   |  0.2   |    0.25   |
+|    min    |  0.682   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.003, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.842047 | 0.3296 |  0.332142 |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.682   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.005, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.84219  | 0.3832 |  0.350409 |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.007, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.840889 | 0.3948 |  0.348798 |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.01, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.834762 | 0.3856 |  0.328332 |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.614   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune gamma -- kernel=rbf, gamma=0.02, C=10000.0
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.829245 |  0.37  |  0.306084 |
+|   median  |  0.841   |  0.4   |   0.286   |
+|    min    |  0.614   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+   kernel='rbf': I select C=10000.0, gamma=0.007
+
+----------- TUNING DECISION TREE MODEL -----------
+
+Tune DT model -- max_depth=None, min_samples_leaf=1
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.81781  | 0.293  |  0.251226 |
+|   median  |  0.818   |  0.2   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune DT model -- max_depth=None, min_samples_leaf=2
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.830837 | 0.2466 |  0.260283 |
+|   median  |  0.841   |  0.2   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune DT model -- max_depth=5, min_samples_leaf=1
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.821393 | 0.286  |  0.254477 |
+|   median  |  0.818   |  0.2   |    0.25   |
+|    min    |  0.614   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune DT model -- max_depth=5, min_samples_leaf=2
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.830519 | 0.246  |  0.257878 |
+|   median  |  0.841   |  0.2   |    0.25   |
+|    min    |  0.614   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune DT model -- max_depth=3, min_samples_leaf=1
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.839052 | 0.2234 |  0.282904 |
+|   median  |  0.841   |  0.2   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+Tune DT model -- max_depth=3, min_samples_leaf=2
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.839419 | 0.2142 |  0.269463 |
+|   median  |  0.841   |  0.2   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+   HIGHEST RECALL: max_depth=None, HIGHEST PRECISION: max_depth=3
+   I select: min_samples_leaf=1, max_depth=None
+
+----------- FINAL MODELS: Tune number of features -----------
+
+-- SVM: Financial + email + text features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.840889 | 0.3948 |  0.348798 |
+|   median  |  0.841   |  0.4   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- SVM: Financial + email features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.832559 | 0.2416 |  0.252529 |
+|   median  |  0.841   |  0.2   |    0.25   |
+|    min    |  0.682   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- SVM: Financial features only
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.840879 | 0.1768 |  0.235846 |
+|   median  |  0.841   |  0.2   |    0.2    |
+|    min    |  0.682   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Decision tree: Financial + email + text features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.828721 | 0.3276 |  0.290251 |
+|   median  |  0.841   |  0.4   |   0.286   |
+|    min    |  0.591   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Decision tree: Financial + email features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.823283 | 0.2966 |  0.261326 |
+|   median  |  0.818   |  0.2   |    0.25   |
+|    min    |  0.636   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Decision tree: Financial features only
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.816854 | 0.2904 |  0.249114 |
+|   median  |  0.818   |  0.2   |    0.25   |
+|    min    |  0.591   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Naive Bayes: Financial + email + text features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.846914 | 0.3052 |  0.334002 |
+|   median  |  0.841   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Naive Bayes: Financial + email features
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.848949 | 0.2528 |  0.316092 |
+|   median  |  0.864   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+-- Naive Bayes: Financial features only
++-----------+----------+--------+-----------+
+| iteration | accuracy | recall | precision |
++-----------+----------+--------+-----------+
+|    mean   | 0.858114 | 0.238  |  0.346101 |
+|   median  |  0.864   |  0.2   |   0.333   |
+|    min    |  0.682   |  0.0   |    0.0    |
++-----------+----------+--------+-----------+
+
+According to the results above, SVM model has better results.
+
+Output of tester.py.
+SVC(C=10000.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
+  gamma=0.007, kernel='rbf', max_iter=-1, probability=False,
+  random_state=42, shrinking=True, tol=0.001, verbose=False)
+	Accuracy: 0.84647	Precision: 0.42179	Recall: 0.40850	F1: 0.41504	F2: 0.41109
+	Total predictions: 15000	True positives:  817	False positives: 1120	False negatives: 1183	True negatives: 11880
