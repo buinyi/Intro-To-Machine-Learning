@@ -1,6 +1,10 @@
+>>> ================================ RESTART ================================
+>>> 
 Importing text features: ['pleas', 'control', 'term', 'deal', 'ee', 'rob', 'hard', 'ani', 'want', 'need', 'paul', 'yes', 'ray', 'ena', 'given', 'thank', 'val', 'profit', 'review', 'turbin', 'note', 'just', 'asset', 'forward', 'east', 'liz', 'pm', 'asap', 'max', 'memo', 'use', 'ect', 'corp', 'plan', 'toph', 'america', 'goal', 'alloc', 'onli', 'ben', 'look', 'howev', 'inform', 'target', 'meet', 'guy', 'view', 'manag', 'fact', 'know']
 
 Arrays are ordered properly
+Number of all features: 67
+Only features from features_list are present
 
 
 ***** WITHOUT TRAIN/TEST SPLIT *****
@@ -14,14 +18,14 @@ Time: 0.02 s
    accuracy: 1.0
    recall: 1.0
    precision: 1.0
-Time: 0.02 s
+Time: 0.03 s
 
 ***** WITH TRAIN/TEST SPLIT *****
 ----- NB classifier -----
    accuracy: 0.886363636364
    recall: 0.6
    precision: 0.5
-Time: 0.02 s
+Time: 0.03 s
 
 ----- SVM classifier -----
    accuracy: 0.863636363636
@@ -33,7 +37,7 @@ Time: 0.02 s
    accuracy: 0.818181818182
    recall: 0.6
    precision: 0.333333333333
-Time: 0.01 s
+Time: 0.02 s
 
 
 -- Summary for SVM 10-fold validation --
@@ -238,44 +242,44 @@ Tune DT model -- max_depth=None, min_samples_leaf=1
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.81781  | 0.293  |  0.251226 |
-|   median  |  0.818   |  0.2   |    0.25   |
-|    min    |  0.636   |  0.0   |    0.0    |
+|    mean   | 0.828721 | 0.3276 |  0.290251 |
+|   median  |  0.841   |  0.4   |   0.286   |
+|    min    |  0.591   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
 
 Tune DT model -- max_depth=None, min_samples_leaf=2
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.830837 | 0.2466 |  0.260283 |
-|   median  |  0.841   |  0.2   |    0.25   |
-|    min    |  0.636   |  0.0   |    0.0    |
+|    mean   | 0.84163  | 0.2834 |  0.302889 |
+|   median  |  0.841   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
 
 Tune DT model -- max_depth=5, min_samples_leaf=1
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.821393 | 0.286  |  0.254477 |
-|   median  |  0.818   |  0.2   |    0.25   |
-|    min    |  0.614   |  0.0   |    0.0    |
+|    mean   | 0.832929 | 0.3214 |  0.298979 |
+|   median  |  0.841   |  0.4   |   0.286   |
+|    min    |  0.591   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
 
 Tune DT model -- max_depth=5, min_samples_leaf=2
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.830519 | 0.246  |  0.257878 |
-|   median  |  0.841   |  0.2   |    0.25   |
-|    min    |  0.614   |  0.0   |    0.0    |
+|    mean   | 0.843127 | 0.2812 |  0.308051 |
+|   median  |  0.841   |  0.2   |   0.333   |
+|    min    |  0.659   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
 
 Tune DT model -- max_depth=3, min_samples_leaf=1
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.839052 | 0.2234 |  0.282904 |
-|   median  |  0.841   |  0.2   |    0.25   |
+|    mean   | 0.849081 | 0.2966 |  0.328286 |
+|   median  |  0.864   |  0.2   |   0.333   |
 |    min    |  0.636   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
 
@@ -283,8 +287,8 @@ Tune DT model -- max_depth=3, min_samples_leaf=2
 +-----------+----------+--------+-----------+
 | iteration | accuracy | recall | precision |
 +-----------+----------+--------+-----------+
-|    mean   | 0.839419 | 0.2142 |  0.269463 |
-|   median  |  0.841   |  0.2   |    0.25   |
+|    mean   | 0.848819 | 0.2792 |  0.303755 |
+|   median  |  0.864   |  0.2   |   0.3205  |
 |    min    |  0.636   |  0.0   |    0.0    |
 +-----------+----------+--------+-----------+
    HIGHEST RECALL: max_depth=None, HIGHEST PRECISION: max_depth=3
@@ -381,3 +385,74 @@ SVC(C=10000.0, cache_size=200, class_weight=None, coef0=0.0, degree=3,
   random_state=42, shrinking=True, tol=0.001, verbose=False)
 	Accuracy: 0.84647	Precision: 0.42179	Recall: 0.40850	F1: 0.41504	F2: 0.41109
 	Total predictions: 15000	True positives:  817	False positives: 1120	False negatives: 1183	True negatives: 11880
+
+
+-- Arrays of features and their importances
+['deferral_payments', 'expenses', 'deferred_income', 'long_term_incentive', 'restricted_stock_deferred', 'loan_advances', 'other', 'director_fees', 'bonus', 'total_stock_value', 'restricted_stock', 'salary', 'total_payments', 'exercised_stock_options', 'from_this_person_to_poi_ratio', 'from_poi_to_this_person_ratio', 'shared_receipt_with_poi_ratio', 'pleas', 'control', 'term', 'deal', 'ee', 'rob', 'hard', 'ani', 'want', 'need', 'paul', 'yes', 'ray', 'ena', 'given', 'thank', 'val', 'profit', 'review', 'turbin', 'note', 'just', 'asset', 'forward', 'east', 'liz', 'pm', 'asap', 'max', 'memo', 'use', 'ect', 'corp', 'plan', 'toph', 'america', 'goal', 'alloc', 'onli', 'ben', 'look', 'howev', 'inform', 'target', 'meet', 'guy', 'view', 'manag', 'fact', 'know']
+[0.0016274984540053709, 0.044458028864757484, 0.027575637134906551, 0.013608435625005669, 0.00032161588411588405, 4.4143356643356639e-05, 0.041517007110031097, 0.0, 0.1011915185204993, 0.057342982192589799, 0.027894388423628604, 0.019123970454829251, 0.026831806831716348, 0.10487653615730939, 0.064122848163800358, 0.015197297896102845, 0.062999651082042515, 0.0035917465169374445, 0.026345356354183495, 0.002819313674259707, 0.0033276439615382153, 0.011032075489344652, 0.013734967584015894, 0.0045002834011784055, 0.0042131716077282739, 0.034813848413451892, 0.0037330320272190897, 0.0024475269146160749, 0.0062868960087780704, 0.0048814033756829998, 0.0049526656205774221, 0.0070797166552332624, 0.0036691776631317102, 0.0049411816181917489, 0.0051794877764132019, 0.0040857490376231542, 0.0051260044033571029, 0.0058829908223232722, 0.0046301577956301566, 0.010151245814347282, 0.0056632907245130325, 0.0028739597727732752, 0.0019423019709334498, 0.010135452165875794, 0.0011054094692134887, 0.0047763536879541317, 0.0026922096842551388, 0.008716432466158287, 0.0076310114790257167, 0.014412405731851178, 0.0062500246470498485, 0.015494695305654971, 0.0025180631868131865, 0.0025135219599069078, 0.0047739717445075538, 0.0049436215663706913, 0.0030744467346793371, 0.004288514851116078, 0.0054473987383107329, 0.0065319060712339351, 0.0021894926953230486, 0.0020615406893164448, 0.035286536366127996, 0.0021358537413041726, 0.047910293379430459, 0.0035180463316107076, 0.0049542361509440844]
+Time: 22.887 s
+
+Time: 12.561 s
+
+Time: 12.693 s
+
+
+-- Arrays of features and their importances
+['expenses', 'deferred_income', 'long_term_incentive', 'other', 'bonus', 'total_stock_value', 'restricted_stock', 'salary', 'total_payments', 'exercised_stock_options', 'from_this_person_to_poi_ratio', 'from_poi_to_this_person_ratio', 'shared_receipt_with_poi_ratio', 'control', 'ee', 'rob', 'want', 'yes', 'ena', 'given', 'val', 'profit', 'turbin', 'note', 'asset', 'forward', 'pm', 'use', 'ect', 'corp', 'plan', 'toph', 'onli', 'howev', 'inform', 'guy', 'manag', 'know']
+[0.042775205964178956, 0.030956239659735145, 0.016103204099163555, 0.049623822060505848, 0.098968007084478157, 0.068133860156471812, 0.033002425149939743, 0.033818125324938504, 0.026648744133292161, 0.09838446942822314, 0.067515320693755793, 0.016838533811310008, 0.063782377838402002, 0.029324747895806101, 0.012467749894735196, 0.015179130448150132, 0.033690628092449028, 0.0066268470574513726, 0.006747845956558445, 0.0058270421782731707, 0.0045778500652433494, 0.006045229534794555, 0.0018789097750347994, 0.011004584970972623, 0.0131091538889644, 0.0064044496854774773, 0.014676300989609679, 0.010158242811332412, 0.012809588376341687, 0.015744159472120978, 0.0047687296073775894, 0.021875861369396118, 0.0071454126181990209, 0.013012728945705033, 0.0044973089652205729, 0.040861894592585997, 0.048784706600222563, 0.0062305608035828439]
+Time: 14.639 s
+
+Time: 6.732 s
+
+Time: 6.33 s
+
+
+-- Arrays of features and their importances
+['expenses', 'deferred_income', 'long_term_incentive', 'other', 'bonus', 'total_stock_value', 'restricted_stock', 'salary', 'total_payments', 'exercised_stock_options', 'from_this_person_to_poi_ratio', 'from_poi_to_this_person_ratio', 'shared_receipt_with_poi_ratio', 'control', 'ee', 'rob', 'want', 'note', 'asset', 'pm', 'use', 'ect', 'corp', 'toph', 'howev', 'guy', 'manag']
+[0.047728893942865315, 0.031988116868024427, 0.014372315340986451, 0.046607934110823833, 0.10510055651814995, 0.084744561876219177, 0.02425048975079382, 0.054989361328001064, 0.021187341089352347, 0.080527101279595101, 0.067870605353327784, 0.026076179588943971, 0.06603625979832313, 0.033899303581296128, 0.013329018707280347, 0.018159807838608107, 0.0483752304608931, 0.0097938513496021451, 0.022067498243204642, 0.01560444930019403, 0.01290038628309976, 0.012669782093124127, 0.017671944823030146, 0.022421520667633366, 0.0050005326298651412, 0.040625650523155185, 0.056001306653607384]
+Time: 11.555 s
+
+Time: 4.734 s
+
+Time: 4.198 s
+
+
+Please check plot window
+
+Please check plot window
+
+Please check plot window
+
+Implementing GridSearchCV for SVM. Please wait a few minutes...
+
+Warning (from warnings module):
+  File "C:\Users\user.userpc\Downloads\WinPython-64bit-2.7.10.2\python-2.7.10.amd64\lib\site-packages\sklearn\metrics\classification.py", line 958
+    'precision', 'predicted', average, warn_for)
+UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 due to no predicted samples.
+Time: 331.407 s
+
+Pipeline(steps=[('skbest', SelectKBest(k=30, score_func=<function f_classif at 0x0000000008532978>)), ('clf', SVC(C=1, cache_size=200, class_weight='auto', coef0=0.0, degree=3, gamma=0.05,
+  kernel='rbf', max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False))])
+
+Features used:
+['expenses', 'deferred_income', 'long_term_incentive', 'loan_advances', 'other', 'director_fees', 'bonus', 'total_stock_value', 'restricted_stock', 'salary', 'total_payments', 'exercised_stock_options', 'from_this_person_to_poi_ratio', 'shared_receipt_with_poi_ratio', 'pleas', 'control', 'ani', 'ray', 'ena', 'val', 'max', 'use', 'corp', 'toph', 'america', 'goal', 'alloc', 'ben', 'guy', 'manag']
+SVC(C=1, cache_size=200, class_weight='auto', coef0=0.0, degree=3, gamma=0.05,
+  kernel='rbf', max_iter=-1, probability=False, random_state=None,
+  shrinking=True, tol=0.001, verbose=False)
+	Accuracy: 0.73060	Precision: 0.29144	Recall: 0.71300	F1: 0.41375	F2: 0.55301
+	Total predictions: 15000	True positives: 1426	False positives: 3467	False negatives:  574	True negatives: 9533
+
+
+Implementing GridSearchCV for Naive Bayes
+Time: 10.102 s
+
+Pipeline(steps=[('skbest', SelectKBest(k=5, score_func=<function f_classif at 0x0000000008532978>)), ('clf', GaussianNB())])
+
+Features used:
+['bonus', 'total_stock_value', 'salary', 'exercised_stock_options', 'from_this_person_to_poi_ratio']
+GaussianNB()
+	Accuracy: 0.86000	Precision: 0.46603	Recall: 0.34300	F1: 0.39516	F2: 0.36212
+	Total predictions: 15000	True positives:  686	False positives:  786	False negatives: 1314	True negatives: 12214
+
+>>> 
