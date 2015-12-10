@@ -86,6 +86,8 @@ def add_to_ptable(ptable,np_array,method):
                         np.max(np_array[:,3])])
     return ptable
 
+## This function uses StratifiedShuffleSplit to make N_folds partitions
+## and returns the algorithm perfomance on these partitions
 def  KFold_summary(features, labels, clf, N_folds,test_size,short):
     results_ptable = PrettyTable(["iteration", "accuracy",
                                   "recall", "precision"])
@@ -116,7 +118,8 @@ def  KFold_summary(features, labels, clf, N_folds,test_size,short):
     return results_arr, results_ptable
 
 
-#returns feature importances
+## This function is similar to KFold_summary, but return only feature 
+## importances averaged over all partitions
 def  KFold_feature_importances(features, labels, clf, N_folds,test_size):
     
     results_arr=[]
@@ -176,7 +179,8 @@ def  KFold_Kbest_summary(features, labels, clf, N_folds,test_size,n_select):
 
 
 
-
+## runs KFold_Kbest_summary over all possible number of features
+## (e.g. from 1 to len(all_features_list))
 def performance_KBest(features,labels,all_features_list,clf,N_folds=200,test_size=0.3):
     perf_list=[]
     for k in range(1,len(all_features_list)):
@@ -184,6 +188,8 @@ def performance_KBest(features,labels,all_features_list,clf,N_folds=200,test_siz
         perf_list.append([k,acc,rec,pre])
 
     return np.array(perf_list)
+
+
 
 ####################################################################
 ### Task 1: [Also please see Task 3.7] Select what features you'll use.
